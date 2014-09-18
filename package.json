@@ -1,0 +1,27 @@
+{
+  "name": "proto-doc",
+  "version": "1.0.0",
+  "description": "Generate a markdown file representing all available messages in a proto2json object",
+  "main": "lib/index.js",
+  "bin": {
+      "proto-doc": "bin/proto-doc"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/nlf/proto-doc.git"
+  },
+  "keywords": [
+    "proto2json",
+    "proto",
+    "markdown"
+  ],
+  "author": "Nathan LaFreniere <quitlahok@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/nlf/proto-doc/issues"
+  },
+  "homepage": "https://github.com/nlf/proto-doc",
+  "dependencies": {
+    "bossy": "^1.0.2"
+  }
+}

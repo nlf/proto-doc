@@ -1,0 +1,35 @@
+#!/usr/bin/env node
+
+var Bossy = require('bossy');
+var ProtoDoc = require('../lib/index');
+var Fs = require('fs');
+
+var definition = {
+    h: {
+        description: 'Show help',
+        alias: 'help',
+        type: 'boolean'
+    },
+    i: {
+        description: 'Input file (json)',
+        alias: 'input',
+        require: true
+    },
+    o: {
+        description: 'Output file (markdown)',
+        alias: 'output',
+        require: true
+    }
+};
+
+var args = Bossy.parse(definition);
+
+if (args instanceof Error || args.h) {
+    console.error(Bossy.usage(definition, 'proto-doc -i <input.json> -o <output.md>'));
+    process.exit(1);
+}
+
+var input = Fs.readFileSync(args.i, 'utf8');
+var output = Fs.createWriteStream(args.o, 'utf8');
+
+ProtoDoc.parse(JSON.parse(input), output);
